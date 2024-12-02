@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+</head>
+<body>
+<header th:insert="_header"></header>
+<form th:action="@{/prodacts}" method="post" th:object="${product}">
+    <input type="text" th:field="*{name}" placeholder="Name">
+    <input type="number" th:field="*{proteins}" placeholder="Proteins">
+    <input type="number" th:field="*{fats}" placeholder="Fats">
+    <input type="number" th:field="*{carbohydrates}" placeholder="Carbohydrates">
+    <input type="number" th:field="*{calories}" placeholder="Calories">
+
+    <button>Сохранить продукт</button>
+</form>
+</body>
+</html>

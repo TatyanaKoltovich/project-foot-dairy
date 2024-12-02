@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:insert="_bootstrap::link">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Login</title>
 </head>
 <body>
-<form th:action="@{/user/login}" method="post">
-    <input type="text" name="username" placeholder="Username">
-    <input type="text" name="password" placeholder="Password">
-    <button>Submit</button>
-</form>
+<header th:insert="_header"></header>
+<div class="container">
+    <div class="row justify-content-center min-vh-100">
+        <div class="col-4 align-self-center">
+            <form th:action="@{/user/login}" method="post">
+
+                <div class="mb-3">
+                    <label class="form-label">Имя пользователя</label>
+                    <input type="text" name="username" class="form-control">
+<!--                    <p class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>-->
+<!--                    <p th:if="${errorMessage != null}" class="text-danger" th:text="${errorMessage}"></p>-->
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Пароль</label>
+                    <input type="text" name="password" class="form-control" >
+<!--                    <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>-->
+                </div>
+                <button type="submit" class="btn btn-success w-100 ">Вход</button>
+
+<!--                <input type="text" name="username" placeholder="Username">-->
+<!--                <input type="text" name="password" placeholder="Password">-->
+<!--                <button>Submit</button>-->
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--<form th:action="@{/user/login}" method="post">-->
+<!--    <input type="text" name="username" placeholder="Username">-->
+<!--    <input type="text" name="password" placeholder="Password">-->
+<!--    <button>Submit</button>-->
+<!--</form>-->
 </body>
 </html>

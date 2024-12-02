@@ -6,13 +6,6 @@ CREATE table if not exists users
     email    VARCHAR(50)         NOT NULL
 );
 
-CREATE table if not exists roles
-(
-    id           BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    type_of_role VARCHAR(255),
-    user_id      BIGINT
-);
-
 CREATE table if not exists products
 (
     id            BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
