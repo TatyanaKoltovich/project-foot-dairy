@@ -6,7 +6,7 @@
 </head>
 <body>
 <header th:insert="_header"></header>
-<form th:action="@{/prodacts}" method="post" th:object="${product}">
+<form th:action="@{/product/saveProduct}" method="post" th:object="${product}">
     <input type="text" th:field="*{name}" placeholder="Name">
     <input type="number" th:field="*{proteins}" placeholder="Proteins">
     <input type="number" th:field="*{fats}" placeholder="Fats">

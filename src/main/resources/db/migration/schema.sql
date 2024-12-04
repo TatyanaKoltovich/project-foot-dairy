@@ -2,8 +2,9 @@ CREATE table if not exists users
 (
     id       BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     username VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255)        NOT NULL,
-    email    VARCHAR(50)         NOT NULL
+    password VARCHAR(255) NOT NULL,
+    email    VARCHAR(50)  NOT NULL,
+    role     VARCHAR(10)
 );
 
 CREATE table if not exists products

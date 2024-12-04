@@ -5,10 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -18,9 +15,9 @@ import java.util.Set;
 
 @Data
 @Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Table(name = "USERS")
 public class User implements UserDetails {
     @Id
@@ -43,25 +40,15 @@ public class User implements UserDetails {
 //    @NotBlank
 //    private Role role;
 
-//    @ElementCollection(fetch = FetchType.EAGER)
-//    private Set<Role> roles;
-
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        //return List.of();
-//        return this.roles;
-//    }
+    @Transient
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return this.roles;
     }
-
-//    @Override
-//    public Role getAuthorities() {
-//       return this.role;
-//    }
-
+    private String role;
 
     @Override
     public boolean isAccountNonExpired() {

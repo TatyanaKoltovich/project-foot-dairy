@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product list</title>
+</head>
+<body>
+<header th:insert="_header"></header>
+<h1>Список продуктов</h1>
+<select class="form-control" id="productList" name="productList">
+    <option value="">Выберите продукт</option>
+    <option th:each="product : ${productList}"
+            th:value="${product.getName()}"
+            th:text="${product.getName()}">
+    </option>
+</select>
+<!--<button>Submit</button>-->
+
+</body>
+</html>

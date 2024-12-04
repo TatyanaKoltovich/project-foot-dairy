@@ -29,8 +29,9 @@ public class SecurityConfiguration {
                         .requestMatchers("/user/reg").permitAll()
                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
-                .formLogin(httpSecurityFormLoginConfigurer -> httpSecurityFormLoginConfigurer
-                        .loginPage("/user/login").permitAll())
+                .formLogin(httpSecurityFormLoginConfigurer -> httpSecurityFormLoginConfigurer.loginPage("/user/login").permitAll()
+
+                )
                 .logout(Customizer.withDefaults());
 
         return http.build();

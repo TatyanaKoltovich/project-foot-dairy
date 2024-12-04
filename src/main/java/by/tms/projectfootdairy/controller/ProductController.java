@@ -18,15 +18,23 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/product")
+    @GetMapping("/addProduct")
     public String addProduct(Model model) {
-        return "addproduct";
+        model.addAttribute("product", new Product());
+        return "addProduct";
     }
 
-    @PostMapping
-    public String addProduct(@ModelAttribute Product product) {
+    @GetMapping("/productList")
+    public String productList(Model model) {
+        model.addAttribute("productList", productService.findAll());
+       return "productList";
+    }
+
+    @PostMapping("/saveProduct")
+    public String saveProduct(@ModelAttribute Product product) {
         productService.save(product);
-        return "redirect:/product/addproduct";
+
+        return "redirect:/product/addProduct";
     }
 
 }

@@ -29,14 +29,19 @@ public class UserController {
    @PostMapping ("/reg")
     public String reg(@ModelAttribute User user) {
         userService.save(user);
-        return "redirect:/index";
+        return "redirect:/";
    }
 
    @GetMapping("/login")
-    public String login(Model model) {
-        model.addAttribute("user", new User());
-        return "login";
-    }
+   public String login() {
+       return "login";
+   }
+//    @GetMapping("/profile")
+//    public String profile() {
+//        return "profile";
+//    }
+
+
 
 //   public ResponseEntity<User> createUser(@RequestBody User user) {
 //        User save = userService.save(user);

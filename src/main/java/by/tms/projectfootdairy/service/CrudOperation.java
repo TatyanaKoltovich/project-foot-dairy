@@ -12,6 +12,7 @@ public interface CrudOperation<T>{
 
     T findById(Long id);
 
+    T findAll();
 
 
 }
