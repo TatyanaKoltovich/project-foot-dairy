@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="_bootstrap::link">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Day plan</title>
+</head>
+<body>
+<header th:insert="_header"></header>
+<!--<h2>Текущий план </h2>-->
+
+<a th:text="'Текущий план ' + ${calories_currently}"></a>
+
+<form th:action="@{/dayPlan}" method="post" th:object="${dayPlan}">
+    <input type="number" th:field="*{calories}" placeholder="Calories per day">
+    <button type="submit" class="btn btn-success w-100 ">Изменить план</button>
+</form>
+</body>
+</html>

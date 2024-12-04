@@ -4,7 +4,9 @@ import by.tms.projectfootdairy.entity.DayPlan;
 import by.tms.projectfootdairy.exception.NotFoundException;
 import by.tms.projectfootdairy.repository.DayPlanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DayPlanService {
 
     @Autowired
